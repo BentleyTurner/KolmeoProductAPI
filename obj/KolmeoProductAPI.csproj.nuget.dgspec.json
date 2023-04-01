@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {}
+    "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {}
   },
   "projects": {
-    "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {
+    "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
+        "projectUniqueName": "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
         "projectName": "KolmeoProductAPI",
-        "projectPath": "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
+        "projectPath": "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
         "packagesPath": "C:\\Users\\bentl\\.nuget\\packages\\",
-        "outputPath": "c:\\Git\\KolmeoProductAPI\\obj\\",
+        "outputPath": "C:\\Git\\KolmeoProductAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bentl\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DjbDvpaZ7kXz3rN39CunGjnwGTwjApa2L6aYOAwiy73tryDpxcLLyxHTA3uue3jKaxpZUwM+zeZonwAYmYu9MQ==",
+  "dgSpecHash": "pXNG2PJuPptp3uEGwJmAIyqgj1qW/pqrGcfXu9UsP5cbKpHwbSdh/nYt1drBaR/pAdLTwsIA1/OlDXoZGhR1Pg==",
   "success": true,
-  "projectFilePath": "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
+  "projectFilePath": "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bentl\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\bentl\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
