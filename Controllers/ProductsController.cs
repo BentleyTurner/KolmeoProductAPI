@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using KolmeoProductAPI.Models;
@@ -21,17 +16,15 @@ namespace KolmeoProductAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> GetProducts()
         {
-          if (_context.Products == null)
-          {
-              return NotFound();
-          }
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+                .Select(x => productToDTO(x))
+                .ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(long id)
+        public async Task<ActionResult<ProductDTO>> GetProduct(long id)
         {
           if (_context.Products == null)
           {
@@ -44,49 +37,58 @@ namespace KolmeoProductAPI.Controllers
                 return NotFound();
             }
 
-            return product;
+            return productToDTO(product);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(long id, Product product)
+        public async Task<IActionResult> PutProduct(long id, ProductDTO productDTO)
         {
-            if (id != product.Id)
+            if (id != productDTO.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(product).State = EntityState.Modified;
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.Name = productDTO.Name;
+            product.Description = productDTO.Description;
+            product.Price = productDTO.Price;
 
             try
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException) when (!ProductExists(id))
             {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
             return NoContent();
         }
 
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<ProductDTO>> PostTodoItem(ProductDTO productDTO)
         {
-          if (_context.Products == null)
-          {
-              return Problem("Entity set 'ProductContext.Products'  is null.");
-          }
+            var product = new Product
+            {
+                
+                Name = productDTO.Name,
+                Description = productDTO.Description,
+                Price = productDTO.Price
+
+            };
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+            return CreatedAtAction(
+                nameof(GetProduct),
+                new { id = product.Id },
+                productToDTO(product));
         }
 
         [HttpDelete("{id}")]
@@ -112,5 +114,14 @@ namespace KolmeoProductAPI.Controllers
         {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        private static ProductDTO productToDTO(Product product) =>
+       new ProductDTO
+       {
+           Id = product.Id,
+           Name = product.Name,
+           Description = product.Description,
+           Price = product.Price
+       };
     }
 }
