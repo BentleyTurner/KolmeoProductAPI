@@ -1,10 +1,8 @@
-namespace KolmeoProductAPI.Models
+namespace KolmeoProductAPI.Models;
+public class Product
 {
-    public class Product
-    {
-        private int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Description { get; set; }
-        public string? Price { get; set; }
-    }
+    public long Id { get; set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
+    public string? Price { get; set; }
 }
