@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {}
+    "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {}
   },
   "projects": {
-    "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {
+    "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
+        "projectUniqueName": "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
         "projectName": "KolmeoProductAPI",
-        "projectPath": "C:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
+        "projectPath": "c:\\Git\\KolmeoProductAPI\\KolmeoProductAPI.csproj",
         "packagesPath": "C:\\Users\\bentl\\.nuget\\packages\\",
-        "outputPath": "C:\\Git\\KolmeoProductAPI\\obj\\",
+        "outputPath": "c:\\Git\\KolmeoProductAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bentl\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.10.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.4, )"
@@ -63,6 +71,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "xunit.assert": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.core": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [
